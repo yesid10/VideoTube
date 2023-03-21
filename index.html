@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoTube</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="header__nav">
+            <figure class="header___figure">
+                <img src="https://leonidasesteban.com/icons/icon-105x78.png" alt="Logo VideoTube">
+            </figure>
+            <p>VideoTube</p>
+            <div class="header__divInput">
+                <input type="text" placeholder="Buscar video" id="searchImput">
+                <span type="submit" id="buscar"><img src="https://img.icons8.com/ios/256/search.png" alt="Icono Buscar"></span>
+                <span type="submit" id="addVideo"><img src="https://cdn.icon-icons.com/icons2/259/PNG/128/ic_add_circle_outline_128_28123.png" alt="" data-form="forms"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="tags">
+             <input id="todos" class="btn" type="submit" value="Todos" data-btn="btn">
+             <input id="tecnologia" class="btn"  type="submit" value="Tecnología" data-btn="btn">
+             <input id="musica" class="btn"  type="submit" value="Música" data-btn="btn"> 
+             <input id="comedia" class="btn"  type="submit" value="Comedia" data-btn="btn">
+        </section>
+        <section class="main__videos"></section>
+    </main>
+
+
+
+
+    <script src="./scripts/script.js" type="module"></script>
+</body>
+
+</html>

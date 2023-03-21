@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Video</title>
+    <link rel="stylesheet" href="../styles/addVide.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="header__nav">
+            <figure class="header___figure">
+                <img src="https://leonidasesteban.com/icons/icon-105x78.png" alt="Logo VideoTube">
+            </figure>
+            <p>VideoTube</p>
+        </nav>
+    </header>
+    <main class="main">
+        <h1>Agregar Video</h1>
+        <form class="main__formulario">
+            <span>
+                <label for="Id">Id: </label>
+                <input type="number" name="Id" placeholder="Id" id="Id">
+            </span>
+            <span>
+                <label for="Name">Nombre del video: </label>
+                <input type="text" name="Name" placeholder="Nombre del video" id="nombreVideo">
+            </span>
+            <span>
+                <label for="miniatura">Miniatura: </label>
+                <input type="text" name="miniatura" placeholder="Link de la imagen miniatura" id="linkMiniatura">
+            </span>
+            <span>
+                <label for="author">Nombre del autor: </label>
+                <input type="text" name="author" placeholder="Nate Gentile" id="nameAuthor">
+            </span>
+            <span>
+                <label for="icon">Link del icono del autor: </label>
+                <input type="text" name="icon" placeholder="Link del icono" id="iconImage">
+            </span>
+            <span>
+                <label for="video">Link del video</label>
+                <input type="text" name="video" placeholder="https://youtu.be/0ZEawfkxmfo" id="linkVideo">
+            </span>
+            <span>
+                <label for="views">Numero de visitas</label>
+                <input type="text" name="views" placeholder="493.346 vistas - hace 3 días" id="nViews">
+            </span>
+            <span>
+                <label for="category">Categoría</label>
+                <input type="text" name="category" placeholder="Música" id="typeCategory">
+            </span>
+
+            <span>
+                <input type="submit" id="btnAgregarVideo" value="Agregar Video" data-inicio="inicio">
+            </span>
+        </form>
+    </main>
+
+
+    <script src="../scripts/addVideo.js" type="module"></script>
+</body>
+</html>
