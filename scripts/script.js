@@ -1,14 +1,14 @@
-import { contenidoVideoTube } from "./data.js"  
+import { contenidoVideoTube } from "./data.js";
 console.log(contenidoVideoTube);
 
 const containervideos = document.querySelector(".main__videos");
 console.log(containervideos);
 
 const printVideos = (container, videosList) => {
-    container.innerHTML = "";
+  container.innerHTML = "";
 
-    videosList.forEach(elementVideo => {
-        container.innerHTML += `
+  videosList.forEach((elementVideo) => {
+    container.innerHTML += `
         <div class="videos">
             <section class="videos_iframe">
                 <figure class="image__miniature">
@@ -28,60 +28,82 @@ const printVideos = (container, videosList) => {
         </div>
         
         `;
-    });
-}
+  });
+};
+
 //Escuchar DOMContentLoaded y se imprimen las imágenes
-
-const nuevoArray = JSON.parse(sessionStorage.getItem('NuevoArray'));
-console.log(nuevoArray)
-if(nuevoArray == null) {
-    document.addEventListener('DOMContentLoaded', ()=>{
-        printVideos(containervideos, contenidoVideoTube)
-    });
-}else {
-    document.addEventListener('DOMContentLoaded', ()=>{
-        printVideos(containervideos, nuevoArray)
-    });
+let filteredArray = contenidoVideoTube;
+const nuevoArray = JSON.parse(sessionStorage.getItem("NuevoArray"));
+console.log(nuevoArray);
+if (nuevoArray == null) {
+  document.addEventListener("DOMContentLoaded", () => {
+    printVideos(containervideos, contenidoVideoTube);
+  });
+} else {
+  document.addEventListener("DOMContentLoaded", () => {
+    printVideos(containervideos, nuevoArray);
+    filteredArray = nuevoArray;
+  });
 }
 
-
+//Escuchar input en el buscador
+const input = document.querySelector("#searchImput");
+input.addEventListener("input", (event) => {
+  const query = event.target.value.toLowerCase();
+  filteredArray = contenidoVideoTube.filter((video) =>
+    video.name.toLowerCase().includes(query) || video.author.toLocaleLowerCase().includes(query)
+  );
+  printVideos(containervideos, filteredArray);
+});
 
 //Escuchar click en las imágenes
 document.addEventListener("click", (event) => {
-    const dataVideoAttribute = event.target.getAttribute('data-video');
-    if (dataVideoAttribute === "videos"){
-        const id = event.target.getAttribute("name");
-        sessionStorage.setItem("idVideo", JSON.stringify(id));
-        window.location.href = "./pages/details.html"
-    }
+  const dataVideoAttribute = event.target.getAttribute("data-video");
+  if (dataVideoAttribute === "videos") {
+    const id = event.target.getAttribute("name");
+    sessionStorage.setItem("idVideo", JSON.stringify(id));
+    window.location.href = "./pages/details.html";
+  }
 });
 
-
-
 // Escuchar click en las tags
-document.addEventListener('click', e => {
-    const dataBtnAttribute = e.target.getAttribute('data-btn');
-    console.log(dataBtnAttribute);
-    if (dataBtnAttribute === "btn"){
-        const valorBtn = e.target.getAttribute("value");
-        console.log(valorBtn);
-        
-        const categoryVideo = contenidoVideoTube.filter(video => video.category === valorBtn);
-        console.log(categoryVideo);
-        printVideos(containervideos,categoryVideo);
+document.addEventListener("click", (e) => {
+  const dataBtnAttribute = e.target.getAttribute("data-btn");
+  console.log(dataBtnAttribute);
+  if (dataBtnAttribute === "btn") {
+    const valorBtn = e.target.getAttribute("value");
+    console.log(valorBtn);
 
-        if (valorBtn === "Todos"){
-            const TodosLosVideos = contenidoVideoTube.slice();
-            printVideos(containervideos, TodosLosVideos)
-        }
+    if (filteredArray.length >= 20) {
+      const categoryVideo = filteredArray.filter(
+        (video) => video.category === valorBtn
+      );
+      console.log(categoryVideo);
+      printVideos(containervideos, categoryVideo);
+    } else {
+      const categoryVideo = contenidoVideoTube.filter(
+        (video) => video.category === valorBtn
+      );
+      console.log(categoryVideo);
+      printVideos(containervideos, categoryVideo);
     }
+
+    if (valorBtn === "Todos") {
+      if (filteredArray.length >= 20) {
+        const TodosLosVideos = filteredArray.slice();
+        printVideos(containervideos, TodosLosVideos);
+      } else {
+        const TodosLosVideos = contenidoVideoTube.slice();
+        printVideos(containervideos, TodosLosVideos);
+      }
+    }
+  }
 });
 
 //Escuchar click en agregar video
-
 document.addEventListener("click", (e) => {
-    const dataForm = e.target.getAttribute('data-form');
-    if (dataForm === "forms"){
-        window.location.href = "./pages/addVideo.html"
-    }
+  const dataForm = e.target.getAttribute('data-form');
+  if (dataForm === "forms") {
+      window.location.href = "./pages/addVideo.html"
+  }
 });

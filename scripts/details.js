@@ -9,7 +9,17 @@ console.log(nuevoArray)
 
 
 
-const videoInData = contenidoVideoTube.find(video => video.id === idVideo);
+
+
+
+if ( nuevoArray.length >=20){
+    var videoInData = nuevoArray.find((video => video.id == idVideo));
+    console.log(videoInData);
+}else {
+    var videoInData = contenidoVideoTube.find(video => video.id == idVideo);
+    console.log(videoInData);
+}
+
 
 
 
@@ -46,7 +56,6 @@ const mostrarVideoInfo = (infoVideoContainer, videoInData) => {
     infoVideoContainer.appendChild(containerInfo);
 }
 document.addEventListener('DOMContentLoaded', () => {
-
     mostrarVideoInfo(infoVideoContainer, videoInData);
 
 });

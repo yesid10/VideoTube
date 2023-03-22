@@ -1,6 +1,6 @@
 import { contenidoVideoTube } from "./data.js";
 
-
+let newvideo;
 const formulario = document.querySelector('.main__formulario');
 formulario.addEventListener('submit', agregarVideo)
 
@@ -14,9 +14,9 @@ function agregarVideo(prevenirEvento){
     let icon_image = document.getElementById('iconImage').value;
     let video = document.getElementById('linkVideo').value;
     let views_time = document.getElementById('nViews').value;
-    let category = document.getElementById('typeCategory').value;
+    let category = document.getElementById('categoriaVideo').value;
 
-    video = {
+    newvideo = {
         id,
         name,
         miniature,
@@ -26,7 +26,7 @@ function agregarVideo(prevenirEvento){
         views_time,
         category
     }
-    contenidoVideoTube.push(video);
+    contenidoVideoTube.push(newvideo);
     formulario.reset();
 
     console.log(contenidoVideoTube);
@@ -34,7 +34,6 @@ function agregarVideo(prevenirEvento){
   document.addEventListener("click", (e) => {
     const inicio = e.target.getAttribute('data-inicio');
     if (inicio === "inicio"){
-        
         sessionStorage.setItem("NuevoArray", JSON.stringify(contenidoVideoTube));
         window.location.href = "../index.html"
     }

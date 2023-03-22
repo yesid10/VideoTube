@@ -60,6 +60,9 @@ body {
     border-radius: 8px 0px 0px 8px;
     background-color: #181818;
 }
+#searchImput{
+    color: #FFFFFF;
+}
 
 
 #buscar {
