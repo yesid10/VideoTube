@@ -5,7 +5,6 @@ const formulario = document.querySelector('.main__formulario');
 formulario.addEventListener('submit', agregarVideo)
 
 function agregarVideo(prevenirEvento){
-    
     prevenirEvento.preventDefault();
     let id = document.getElementById('Id').value;
     let name = document.getElementById('nombreVideo').value;

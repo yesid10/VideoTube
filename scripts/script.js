@@ -1,6 +1,9 @@
 import { contenidoVideoTube } from "./data.js";
 console.log(contenidoVideoTube);
 
+
+
+
 const containervideos = document.querySelector(".main__videos");
 console.log(containervideos);
 
@@ -50,9 +53,13 @@ if (nuevoArray == null) {
 const input = document.querySelector("#searchImput");
 input.addEventListener("input", (event) => {
   const query = event.target.value.toLowerCase();
-  filteredArray = contenidoVideoTube.filter((video) =>
-    video.name.toLowerCase().includes(query) || video.author.toLocaleLowerCase().includes(query)
-  );
+  if (nuevoArray == null) {
+    filteredArray = contenidoVideoTube.filter((video) =>
+      video.name.toLowerCase().includes(query) || video.author.toLocaleLowerCase().includes(query))
+  } else {
+    filteredArray = nuevoArray.filter((video) =>
+      video.name.toLowerCase().includes(query) || video.author.toLocaleLowerCase().includes(query))
+  }
   printVideos(containervideos, filteredArray);
 });
 
@@ -104,6 +111,34 @@ document.addEventListener("click", (e) => {
 document.addEventListener("click", (e) => {
   const dataForm = e.target.getAttribute('data-form');
   if (dataForm === "forms") {
-      window.location.href = "./pages/addVideo.html"
+    window.location.href = "./pages/addVideo.html"
   }
 });
+
+//Eliminar video
+//document.querySelector('.span_deleteVideo').style.display = 'none';
+const deleteVideo = document.querySelector('#deleteVideo');
+console.log(deleteVideo);
+deleteVideo.addEventListener('click', eliminarVideo);
+
+function eliminarVideo() {
+  //document.querySelector('.span_deleteVideo').style.display = '';
+  const iddelete = document.getElementById('deleteIdVideo').value;
+  console.log(iddelete);
+
+  if (nuevoArray == null) {
+    var videoIndelete =contenidoVideoTube.indexOf(contenidoVideoTube.find(video => video.id == iddelete)) ;
+    console.log(videoIndelete);
+    const videoDelete = contenidoVideoTube.splice(videoIndelete, 1);
+  } else {
+    var videoIndelete =nuevoArray.indexOf(nuevoArray.find((video => video.id == iddelete))) ;
+    console.log(videoIndelete);
+    const videoDelete = nuevoArray.splice(videoIndelete, 1);
+  }
+  if(nuevoArray == null){
+    printVideos (containervideos, contenidoVideoTube)
+  }else {
+    printVideos(containervideos, nuevoArray)
+  }
+ 
+}

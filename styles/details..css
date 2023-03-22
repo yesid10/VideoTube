@@ -11,11 +11,15 @@ body {
     background-color: #181818;
 }
 
-.header {
+.header{
     width: 100%;
     display: flex;
 
 }
+.header__title, .header___figure img{
+    cursor: pointer;
+}
+
 
 .header__nav {
     display: flex;
@@ -66,6 +70,7 @@ body {
     border-radius: 8px 0px 0px 8px;
     background-color: #181818;
 }
+
 
 #buscar {
     display: flex;

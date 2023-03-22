@@ -15,11 +15,19 @@
             <figure class="header___figure">
                 <img src="https://leonidasesteban.com/icons/icon-105x78.png" alt="Logo VideoTube">
             </figure>
-            <p>VideoTube</p>
+            <span class="header___figure">
+                <p>VideoTube</p>
+            </span>
+            
             <div class="header__divInput">
                 <input type="text" placeholder="Buscar video" id="searchImput">
                 <span type="submit" id="buscar"><img src="https://img.icons8.com/ios/256/search.png" alt="Icono Buscar"></span>
-                <span type="submit" id="addVideo"><img src="https://cdn.icon-icons.com/icons2/259/PNG/128/ic_add_circle_outline_128_28123.png" alt="" data-form="forms"></span>
+                <div class="buttons">
+                    <span type="submit" id="addVideo"><img src="https://cdn.icon-icons.com/icons2/259/PNG/128/ic_add_circle_outline_128_28123.png" alt="" data-form="forms"></span>
+                    <button type="submit" id="deleteVideo"><img src="https://cdn-icons-png.flaticon.com/512/5885/5885879.png" alt=""></button>
+                    <span type="submit" id="editarVideo"> <img src="https://cdn-icons-png.flaticon.com/512/8680/8680217.png" alt=""></span>
+                </div>
+                <span class="span_deleteVideo"><input type="number" id="deleteIdVideo" data-id = "deleteId"></span>
             </div>
         </nav>
     </header>

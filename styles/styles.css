@@ -14,6 +14,9 @@ body {
     width: 100%;
     display: flex;
 }
+.header___figure{
+    cursor: pointer;
+}
 .header__nav {
     display: flex;
     width: 100%;
@@ -62,6 +65,8 @@ body {
 }
 #searchImput{
     color: #FFFFFF;
+    font-size: 18px;
+    font-family: 'Poppins';
 }
 
 
@@ -80,10 +85,34 @@ body {
 }
 #addVideo{
     display: flex;
-    
-    justify-content: end;
-    padding-left: 5%;
 }
+#addVideo:hover{
+    cursor: pointer;
+    transform: scale(0.9);
+}
+.buttons{
+    display: flex;
+    flex-direction:row;
+    position: absolute;
+    left: 85%;
+    gap: 20px;
+}
+#deleteIdVideo{
+    width: 100px;
+    height: 30px;
+    border-radius: 50px;
+    padding: 20px;
+    color: #FFFFFF;
+    display: flex;
+    position: absolute;
+    top: 10%;
+    left: 87.55%;
+}
+#deleteVideo{
+    background-color: #181818;
+    border: #181818;
+}
+
 
 .tags {
     display: flex;
@@ -113,6 +142,7 @@ body {
     font-size: 16px;
     line-height: 24px;
     color: #FFFFFF;
+    cursor: pointer;
 }
 #todos:hover{
     background: #FFFFFF;
@@ -136,6 +166,7 @@ body {
     font-size: 16px;
     line-height: 24px;
     color: #FFFFFF;
+    cursor: pointer;
 }
 #tecnologia:hover{
     background: #FFFFFF;
@@ -159,6 +190,7 @@ body {
     font-size: 16px;
     line-height: 24px;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 #musica:hover{
@@ -183,6 +215,7 @@ body {
     font-size: 16px;
     line-height: 24px;
     color: #FFFFFF;
+    cursor: pointer;
 }
 #comedia:hover{
     background: #FFFFFF;

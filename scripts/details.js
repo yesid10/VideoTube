@@ -3,25 +3,29 @@ import { contenidoVideoTube } from "./data.js";
 const idVideo = Number(JSON.parse(sessionStorage.getItem("idVideo")) || 0);
 console.log(idVideo)
 
+
+const logo = document.querySelector('.header___figure');
+logo.addEventListener('click', () => {
+    window.location.href = "../index.html"
+});
+const logoTitle = document.querySelector('.header__title');
+logoTitle.addEventListener('click', () => {
+    window.location.href = "../index.html"
+});
+
+
+
 //Buscar video que recibió click;
 const nuevoArray = JSON.parse(sessionStorage.getItem('NuevoArray'));
 console.log(nuevoArray)
 
-
-
-
-
-
-if ( nuevoArray.length >=20){
-    var videoInData = nuevoArray.find((video => video.id == idVideo));
-    console.log(videoInData);
-}else {
+if ( nuevoArray == null){
     var videoInData = contenidoVideoTube.find(video => video.id == idVideo);
     console.log(videoInData);
+}else {
+    var videoInData = nuevoArray.find((video => video.id == idVideo));
+    console.log(videoInData);
 }
-
-
-
 
 //capturar container información;
 const infoVideoContainer = document.getElementById("information");
