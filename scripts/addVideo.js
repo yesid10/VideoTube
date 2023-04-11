@@ -27,6 +27,9 @@ function agregarVideo(prevenirEvento){
     }
     contenidoVideoTube.push(newvideo);
     formulario.reset();
+    Swal.fire(
+        "Buen trabajo"
+    );
 
     console.log(contenidoVideoTube);
   //Escuchar click en boton agregar

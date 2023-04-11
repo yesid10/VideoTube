@@ -140,5 +140,4 @@ function eliminarVideo() {
   }else {
     printVideos(containervideos, nuevoArray)
   }
- 
 }
